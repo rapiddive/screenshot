@@ -34,7 +34,11 @@ app.get('/screenshot', async (req, res) => {
 
 
 app.get('/ping', async (req, res) => {
-    res.send('hello');
+var obj = {};
+  obj.status = "ok";
+  obj.envname = process.env.ENVIRONMENT_NAME;
+  obj.region = process.env.REGION_NAME;
+  res.json(obj);
 });
 
 app.listen(3000, () => {
